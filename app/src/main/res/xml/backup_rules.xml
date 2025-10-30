@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Exclude files that shouldn't be backed up -->
+    <exclude domain="sharedpref" path="device_prefs.xml"/>
+    <exclude domain="file" path="temp/"/>
+    <exclude domain="file" path="cache/"/>
+    
+    <!-- Include important app data -->
+    <include domain="sharedpref" path="app_prefs.xml"/>
+    <include domain="database" path="app_database.db"/>
+    <include domain="file" path="user_data/"/>
+</full-backup-content>

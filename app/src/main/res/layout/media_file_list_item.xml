@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:background="?android:attr/selectableItemBackground">
+
+    <!-- File icon -->
+    <ImageView
+        android:id="@+id/iv_file_icon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="12dp"
+        android:src="@drawable/ic_file"
+        android:scaleType="centerInside" />
+
+    <!-- File information -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical">
+
+        <!-- File name -->
+        <TextView
+            android:id="@+id/tv_file_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="filename.mp4"
+            android:textSize="16sp"
+            android:textColor="#333333"
+            android:textStyle="normal"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <!-- File details -->
+        <TextView
+            android:id="@+id/tv_file_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1920x1080, 1:23:45, 5000k"
+            android:textSize="14sp"
+            android:textColor="#666666"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <!-- Size and date info -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="2dp">
+
+            <TextView
+                android:id="@+id/tv_file_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25.6 MB"
+                android:textSize="12sp"
+                android:textColor="#999999"
+                android:layout_marginEnd="16dp" />
+
+            <TextView
+                android:id="@+id/tv_file_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jan 15, 2024"
+                android:textSize="12sp"
+                android:textColor="#999999" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Selection checkbox -->
+    <CheckBox
+        android:id="@+id/cb_file_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:visibility="gone"
+        android:focusable="false"
+        android:clickable="false" />
+
+    <!-- More options button -->
+    <ImageButton
+        android:id="@+id/btn_file_options"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/ic_more_vert"
+        android:background="@android:color/transparent"
+        android:contentDescription="File options"
+        android:visibility="gone" />
+
+</LinearLayout>

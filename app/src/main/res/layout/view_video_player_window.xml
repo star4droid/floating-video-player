@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <!-- Video Surface -->
+    <View
+        android:id="@+id/video_surface"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/audio_info_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Thumbnail View -->
+    <ImageView
+        android:id="@+id/thumbnail_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/video_surface"
+        app:layout_constraintEnd_toEndOf="@id/video_surface"
+        app:layout_constraintStart_toStartOf="@id/video_surface"
+        app:layout_constraintTop_toTopOf="@id/video_surface" />
+
+    <!-- Loading Progress -->
+    <ProgressBar
+        android:id="@+id/loading_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/video_surface"
+        app:layout_constraintEnd_toEndOf="@id/video_surface"
+        app:layout_constraintStart_toStartOf="@id/video_surface"
+        app:layout_constraintTop_toTopOf="@id/video_surface" />
+
+    <!-- Audio Info Container (hidden by default, shown for audio-only mode) -->
+    <LinearLayout
+        android:id="@+id/audio_info_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/dark_overlay"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Album Art -->
+        <ImageView
+            android:id="@+id/album_art"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/album_art_background"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_audio_file" />
+
+        <!-- Song Title -->
+        <TextView
+            android:id="@+id/text_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text="Unknown Title"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Artist -->
+        <TextView
+            android:id="@+id/text_artist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="Unknown Artist"
+            android:textColor="@color/gray_light"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <!-- Controls Container -->
+    <LinearLayout
+        android:id="@+id/controls_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:alpha="1.0"
+        android:background="@drawable/controls_background"
+        android:orientation="vertical"
+        android:padding="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Seek Bar -->
+        <SeekBar
+            android:id="@+id/seek_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:max="1000"
+            android:progressTint="@color/white"
+            android:thumbTint="@color/white" />
+
+        <!-- Time Text -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text_current_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="0:00"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/text_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0:00"
+                android:textColor="@color/gray_light"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <!-- Main Controls Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- Previous Button -->
+            <ImageButton
+                android:id="@+id/btn_previous"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/button_background"
+                android:contentDescription="Previous"
+                android:padding="12dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_previous" />
+
+            <!-- Play/Pause Button -->
+            <ImageButton
+                android:id="@+id/btn_play_pause"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/play_button_background"
+                android:contentDescription="Play/Pause"
+                android:padding="16dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_play" />
+
+            <!-- Next Button -->
+            <ImageButton
+                android:id="@+id/btn_next"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/button_background"
+                android:contentDescription="Next"
+                android:padding="12dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_next" />
+
+        </LinearLayout>
+
+        <!-- Secondary Controls Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- Volume Button -->
+            <ImageButton
+                android:id="@+id/btn_volume"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="2dp"
+                android:background="@drawable/button_background"
+                android:contentDescription="Volume"
+                android:padding="10dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_volume_up" />
+
+            <!-- Speed Button -->
+            <ImageButton
+                android:id="@+id/btn_speed"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="2dp"
+                android:background="@drawable/button_background"
+                android:contentDescription="Speed"
+                android:padding="10dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_speed" />
+
+            <!-- Format Button -->
+            <ImageButton
+                android:id="@+id/btn_format"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="2dp"
+                android:background="@drawable/button_background"
+                android:contentDescription="Format"
+                android:padding="10dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_file" />
+
+            <!-- File Manager Button -->
+            <ImageButton
+                android:id="@+id/btn_file_manager"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="2dp"
+                android:background="@drawable/button_background"
+                android:contentDescription="File Manager"
+                android:padding="10dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_folder_closed" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

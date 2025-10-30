@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Floating Video Player</string>
+    
+    <!-- Main Activity -->
+    <string name="permission_status">Permission Status</string>
+    <string name="service_status">Service Status</string>
+    <string name="start_overlay">Start Floating Player</string>
+    <string name="stop_overlay">Stop Overlay</string>
+    <string name="check_permissions">Check Permissions</string>
+    <string name="instructions">Instructions</string>
+    <string name="grant_permissions_instructions">1. Grant all required permissions when prompted\n2. Start the overlay to see floating windows\n3. Use the floating controls to manage video playback\n4. Drag windows to reposition them</string>
+    
+    <!-- Floating Player -->
+    <string name="minimize_player">Minimize Player</string>
+    <string name="close_player">Close Player</string>
+    <string name="no_video_playing">No video playing</string>
+    <string name="play_pause">Play/Pause</string>
+    <string name="volume">Volume</string>
+    <string name="settings">Settings</string>
+    <string name="fullscreen">Fullscreen</string>
+    <string name="current_time">Current Time</string>
+    <string name="duration">Duration</string>
+    
+    <!-- File Manager -->
+    <string name="file_manager_title">File Manager</string>
+    <string name="refresh">Refresh</string>
+    <string name="minimize_filemanager">Minimize File Manager</string>
+    <string name="close_filemanager">Close File Manager</string>
+    <string name="current_path">Current Path</string>
+    <string name="search_files">Search files...</string>
+    <string name="clear_search">Clear search</string>
+    <string name="file_count">%1$d items</string>
+    <string name="loading_files">Loading files...</string>
+    <string name="back">Back</string>
+    <string name="select_video">Play Video</string>
+    <string name="open_with">Open With</string>
+    
+    <!-- Permissions -->
+    <string name="permission_required">Permission Required</string>
+    <string name="overlay_permission_description">This app needs overlay permission to display floating windows over other apps.</string>
+    <string name="storage_permission_description">This app needs storage permission to access and play video files.</string>
+    <string name="manage_storage_permission_description">This app needs full file access to browse all files on your device.</string>
+    <string name="grant_permission">Grant Permission</string>
+    <string name="permission_denied">Permission Denied</string>
+    <string name="permission_granted">Permission Granted</string>
+    
+    <!-- Notifications -->
+    <string name="notification_channel_service">Floating Video Player Service</string>
+    <string name="notification_channel_service_description">Manages floating video player overlay</string>
+    <string name="notification_title">Floating Video Player</string>
+    <string name="notification_text">Service is running</string>
+    <string name="notification_action_toggle">Toggle Overlay</string>
+    <string name="notification_action_show_filemanager">Show File Manager</string>
+    <string name="notification_action_show_player">Show Video Player</string>
+    <string name="notification_action_stop">Stop Service</string>
+    
+    <!-- Error Messages -->
+    <string name="error_overlay_permission">Overlay permission is required to show floating windows.</string>
+    <string name="error_storage_permission">Storage permission is required to access video files.</string>
+    <string name="error_manage_storage_permission">Manage storage permission is required to access all files.</string>
+    <string name="error_service_start">Failed to start overlay service.</string>
+    <string name="error_video_play">Failed to play video.</string>
+    <string name="error_file_access">Failed to access file system.</string>
+    
+    <!-- Success Messages -->
+    <string name="overlay_started">Floating overlay started</string>
+    <string name="overlay_stopped">Floating overlay stopped</string>
+    <string name="video_loaded">Video loaded</string>
+    <string name="video_started">Video started playing</string>
+    <string name="video_paused">Video paused</string>
+    <string name="files_loaded">Files loaded</string>
+    
+    <!-- Placeholder text -->
+    <string name="no_files_found">No files found</string>
+    <string name="no_videos_found">No videos found</string>
+    <string name="browsing_files">Browsing files...</string>
+    <string name="select_file_to_play">Select a video file to play</string>
+    
+    <!-- Button text -->
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="retry">Retry</string>
+    <string name="browse">Browse</string>
+    <string name="close">Close</string>
+    <string name="open">Open</string>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="stop">Stop</string>
+    <string name="mute">Mute</string>
+    <string name="unmute">Unmute</string>
+    
+</resources>

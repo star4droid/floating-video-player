@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Main content -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="4dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="#FFFFFF">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- Enhanced Header -->
+            <LinearLayout
+                android:id="@+id/action_bar_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="space_between"
+                android:padding="12dp"
+                android:background="#2196F3">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="File Manager"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical" />
+
+                <!-- View toggle button -->
+                <ImageButton
+                    android:id="@+id/btn_list_grid_toggle"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_list"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Toggle View"
+                    android:layout_marginEnd="8dp" />
+
+                <!-- Filter button -->
+                <ImageButton
+                    android:id="@+id/btn_filter"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_filter"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Filter Files"
+                    android:layout_marginEnd="8dp" />
+
+                <!-- Favorites button -->
+                <ImageButton
+                    android:id="@+id/btn_favorites"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_star"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Favorites"
+                    android:layout_marginEnd="8dp" />
+
+                <!-- Recent button -->
+                <ImageButton
+                    android:id="@+id/btn_recent"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_clock"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Recent Files"
+                    android:layout_marginEnd="8dp" />
+
+                <!-- Close button -->
+                <ImageButton
+                    android:id="@+id/btn_close_filemanager"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_close"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Close" />
+
+            </LinearLayout>
+
+            <!-- Selection mode action bar (hidden by default) -->
+            <LinearLayout
+                android:id="@+id/selection_bar_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="space_between"
+                android:padding="8dp"
+                android:background="#FFC107"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="0 files selected"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:gravity="center_vertical" />
+
+                <ImageButton
+                    android:id="@+id/btn_select_all"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_select_all"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Select All"
+                    android:layout_marginEnd="8dp" />
+
+                <ImageButton
+                    android:id="@+id/btn_clear_selection"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_clear"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Clear Selection"
+                    android:layout_marginEnd="8dp" />
+
+                <ImageButton
+                    android:id="@+id/btn_delete"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_delete"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Delete"
+                    android:layout_marginEnd="8dp" />
+
+                <ImageButton
+                    android:id="@+id/btn_rename"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_edit"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Rename" />
+
+            </LinearLayout>
+
+            <!-- Breadcrumb navigation -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F5F5F5"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/breadcrumb_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    android:gravity="center_vertical" />
+
+            </HorizontalScrollView>
+
+            <!-- Navigation and control buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:background="#FAFAFA">
+
+                <ImageButton
+                    android:id="@+id/btn_up_directory"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_arrow_up"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Up Directory"
+                    android:layout_marginEnd="12dp" />
+
+                <ImageButton
+                    android:id="@+id/btn_home"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_home"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Home"
+                    android:layout_marginEnd="12dp" />
+
+                <!-- Current path display -->
+                <TextView
+                    android:id="@+id/tv_current_path"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="/sdcard"
+                    android:textSize="14sp"
+                    android:textColor="#666666"
+                    android:ellipsize="start"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:background="@android:color/transparent"
+                    android:padding="4dp" />
+
+                <ImageButton
+                    android:id="@+id/btn_minimize_filemanager"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_minimize"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Minimize"
+                    android:layout_marginStart="12dp" />
+
+            </LinearLayout>
+
+            <!-- Search bar -->
+            <LinearLayout
+                android:id="@+id/search_bar_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:background="#F0F0F0">
+
+                <EditText
+                    android:id="@+id/et_search"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Search files and folders..."
+                    android:textSize="14sp"
+                    android:background="@android:color/white"
+                    android:padding="8dp"
+                    android:drawablePadding="8dp"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+                <ImageButton
+                    android:id="@+id/btn_search"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_search"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Search"
+                    android:layout_marginStart="4dp" />
+
+            </LinearLayout>
+
+            <!-- File lists container -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <!-- List view -->
+                <ListView
+                    android:id="@+id/list_view_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible">
+
+                    <ListView
+                        android:id="@+id/lv_file_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="4dp"
+                        android:scrollbars="vertical"
+                        android:divider="@android:color/transparent"
+                        android:dividerHeight="1dp" />
+
+                </ListView>
+
+                <!-- Grid view -->
+                <FrameLayout
+                    android:id="@+id/grid_view_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
+
+                    <GridView
+                        android:id="@+id/gv_file_grid"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:numColumns="3"
+                        android:verticalSpacing="8dp"
+                        android:horizontalSpacing="8dp"
+                        android:padding="8dp"
+                        android:scrollbars="vertical"
+                        android:stretchMode="columnWidth" />
+
+                </FrameLayout>
+
+                <!-- Empty view -->
+                <TextView
+                    android:id="@+id/tv_empty_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="This directory is empty"
+                    android:textSize="16sp"
+                    android:textColor="#999999"
+                    android:visibility="gone" />
+
+            </FrameLayout>
+
+            <!-- Footer with file count -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:background="#F5F5F5"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_file_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 items"
+                    android:textSize="12sp"
+                    android:textColor="#666666" />
+
+                <TextView
+                    android:id="@+id/tv_loading_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Loading files..."
+                    android:textSize="12sp"
+                    android:textColor="#2196F3"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Resize handles -->
+    <!-- Top-left corner -->
+    <FrameLayout
+        android:id="@+id/resize_handle_top_left"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="start|top"
+        android:layout_margin="4dp"
+        android:background="@drawable/resize_handle"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- Top-right corner -->
+    <FrameLayout
+        android:id="@+id/resize_handle_top_right"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="end|top"
+        android:layout_margin="4dp"
+        android:background="@drawable/resize_handle"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- Bottom-left corner -->
+    <FrameLayout
+        android:id="@+id/resize_handle_bottom_left"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="start|bottom"
+        android:layout_margin="4dp"
+        android:background="@drawable/resize_handle"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- Bottom-right corner -->
+    <FrameLayout
+        android:id="@+id/resize_handle_bottom_right"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="4dp"
+        android:background="@drawable/resize_handle"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- Left side -->
+    <View
+        android:id="@+id/resize_handle_left"
+        android:layout_width="8dp"
+        android:layout_height="40dp"
+        android:layout_gravity="start|center_vertical"
+        android:layout_margin="4dp"
+        android:background="@drawable/resize_handle_vertical"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- Right side -->
+    <View
+        android:id="@+id/resize_handle_right"
+        android:layout_width="8dp"
+        android:layout_height="40dp"
+        android:layout_gravity="end|center_vertical"
+        android:layout_margin="4dp"
+        android:background="@drawable/resize_handle_vertical"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- Top side -->
+    <View
+        android:id="@+id/resize_handle_top"
+        android:layout_width="40dp"
+        android:layout_height="8dp"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_margin="4dp"
+        android:background="@drawable/resize_handle_horizontal"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- Bottom side -->
+    <View
+        android:id="@+id/resize_handle_bottom"
+        android:layout_width="40dp"
+        android:layout_height="8dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_margin="4dp"
+        android:background="@drawable/resize_handle_horizontal"
+        android:clickable="true"
+        android:focusable="true" />
+
+</FrameLayout>

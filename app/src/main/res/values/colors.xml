@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Colors -->
+    <color name="primary_color">#2196F3</color>
+    <color name="primary_dark">#1976D2</color>
+    <color name="primary_light">#BBDEFB</color>
+    
+    <!-- Accent Colors -->
+    <color name="accent_color">#FF9800</color>
+    <color name="accent_dark">#F57C00</color>
+    
+    <!-- Background Colors -->
+    <color name="background_color">#F5F5F5</color>
+    <color name="surface_color">#FFFFFF</color>
+    <color name="card_background">#FFFFFF</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="text_hint">#BDBDBD</color>
+    <color name="text_disabled">#9E9E9E</color>
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_black">#000000</color>
+    
+    <!-- Divider and Line Colors -->
+    <color name="divider_color">#E0E0E0</color>
+    <color name="separator_color">#EEEEEE</color>
+    <color name="border_color">#CCCCCC</color>
+    
+    <!-- Button Colors -->
+    <color name="button_primary">#2196F3</color>
+    <color name="button_primary_pressed">#1976D2</button>
+    <color name="button_secondary">#F5F5F5</color>
+    <color name="button_secondary_pressed">#E0E0E0</color>
+    <color name="button_danger">#F44336</color>
+    <color name="button_danger_pressed">#D32F2F</button>
+    <color name="button_warning">#FF9800</color>
+    <color name="button_warning_pressed">#F57C00</button>
+    
+    <!-- Overlay Colors -->
+    <color name="overlay_background">#80000000</color>
+    <color name="overlay_light">#40000000</color>
+    <color name="overlay_player_bg">#E6000000</color>
+    <color name="overlay_transparent">#00000000</color>
+    
+    <!-- Video Player Colors -->
+    <color name="video_background">#000000</color>
+    <color name="video_surface">#1A1A1A</color>
+    <color name="video_control_bg">#CC000000</color>
+    <color name="video_control_text">#FFFFFF</color>
+    <color name="video_progress">#2196F3</color>
+    <color name="video_progress_bg">#404040</color>
+    
+    <!-- File Manager Colors -->
+    <color name="filemanager_header">#2196F3</color>
+    <color name="filemanager_path_bg">#F5F5F5</color>
+    <color name="filemanager_path_text">#666666</color>
+    <color name="filemanager_item_bg">#FFFFFF</color>
+    <color name="filemanager_item_selected">#E3F2FD</color>
+    <color name="filemanager_folder">#FFA726</color>
+    <color name="filemanager_video">#42A5F5</color>
+    <color name="filemanager_other">#78909C</color>
+    
+    <!-- Status Colors -->
+    <color name="status_success">#4CAF50</color>
+    <color name="status_warning">#FF9800</color>
+    <color name="status_error">#F44336</color>
+    <color name="status_info">#2196F3</color>
+    
+    <!-- Notification Colors -->
+    <color name="notification_bg">#424242</color>
+    <color name="notification_text">#FFFFFF</color>
+    <color name="notification_action">#2196F3</color>
+    
+    <!-- Progress and Loading Colors -->
+    <color name="progress_primary">#2196F3</color>
+    <color name="progress_secondary">#E0E0E0</color>
+    <color name="loading_bg">#80000000</color>
+    <color name="loading_spinner">#FFFFFF</color>
+    
+    <!-- Search and Filter Colors -->
+    <color name="search_bg">#F5F5F5</color>
+    <color name="search_border">#E0E0E0</color>
+    <color name="search_focus">#2196F3</color>
+    <color name="search_text">#212121</color>
+    
+    <!-- Dialog and Modal Colors -->
+    <color name="dialog_bg">#FFFFFF</color>
+    <color name="dialog_title">#212121</color>
+    <color name="dialog_message">#757575</color>
+    <color name="dialog_button_bg">#F5F5F5</color>
+    
+    <!-- Accessibility Colors -->
+    <color name="high_contrast_bg">#FFFFFF</color>
+    <color name="high_contrast_text">#000000</color>
+    <color name="low_contrast_text">#666666</color>
+    
+    <!-- Dark Theme Colors (for future use) -->
+    <color name="dark_background">#121212</color>
+    <color name="dark_surface">#1E1E1E</color>
+    <color name="dark_text_primary">#FFFFFF</color>
+    <color name="dark_text_secondary">#B3B3B3</color>
+    
+    <!-- Additional Media3 Video Player Colors -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="gray_dark">#404040</color>
+    <color name="gray_medium">#808080</color>
+    <color name="gray_light">#B0B0B0</color>
+    <color name="accent">#2196F3</color>
+    <color name="dark_overlay">#80000000</color>
+    <color name="light_overlay">#40000000</color>
+    <color name="primary">#1976D2</color>
+    <color name="primary_dark">#0D47A1</color>
+    <color name="primary_light">#42A5F5</color>
+    <color name="secondary">#03DAC6</color>
+    <color name="secondary_variant">#018786</color>
+    <color name="surface">#121212</color>
+    <color name="background">#000000</color>
+    <color name="error">#CF6679</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="on_secondary">#000000</color>
+    <color name="on_surface">#FFFFFF</color>
+    <color name="on_background">#FFFFFF</color>
+    <color name="on_error">#FFFFFF</color>
+    
+</resources>

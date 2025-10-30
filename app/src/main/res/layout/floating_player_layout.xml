@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Main content -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="4dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="#E6000000"
+        android:background="@android:color/transparent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+        <!-- Header with close and minimize buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_marginBottom="8dp">
+
+            <ImageButton
+                android:id="@+id/btn_minimize_player"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_minimize"
+                android:background="@android:color/transparent"
+                android:contentDescription="Minimize"
+                android:layout_marginEnd="8dp" />
+
+            <ImageButton
+                android:id="@+id/btn_close_player"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_close"
+                android:background="@android:color/transparent"
+                android:contentDescription="Close" />
+
+        </LinearLayout>
+
+        <!-- Video Player Container -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#000000"
+            android:layout_marginBottom="8dp">
+
+            <!-- ExoPlayer View will be added dynamically here -->
+            <SurfaceView
+                android:id="@+id/video_surface"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
+            <!-- Placeholder when no video is playing -->
+            <LinearLayout
+                android:id="@+id/video_placeholder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="#1A1A1A">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_play_circle"
+                    android:layout_marginBottom="16dp"
+                    android:alpha="0.6" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No video playing"
+                    android:textColor="#CCCCCC"
+                    android:textSize="14sp"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <!-- Loading indicator -->
+            <ProgressBar
+                android:id="@+id/progress_loading"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                style="?android:attr/progressBarStyleLarge"
+                android:indeterminateTint="#FFFFFF" />
+
+        </FrameLayout>
+
+        <!-- Control Bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingTop="4dp"
+            android:background="@android:color/transparent">
+
+            <!-- Play/Pause Button -->
+            <ImageButton
+                android:id="@+id/btn_play_pause"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_play"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Play/Pause"
+                android:layout_marginEnd="12dp" />
+
+            <!-- Volume Button -->
+            <ImageButton
+                android:id="@+id/btn_volume"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_volume_up"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Volume"
+                android:layout_marginEnd="12dp" />
+
+            <!-- Settings Button -->
+            <ImageButton
+                android:id="@+id/btn_settings"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_settings"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Settings"
+                android:layout_marginEnd="12dp" />
+
+            <!-- Fullscreen Toggle -->
+            <ImageButton
+                android:id="@+id/btn_fullscreen"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_fullscreen"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Fullscreen" />
+
+        </LinearLayout>
+
+        <!-- Progress Bar -->
+        <SeekBar
+            android:id="@+id/seek_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:max="100"
+            android:progress="0"
+            android:progressTint="#2196F3"
+            android:thumbTint="#2196F3"
+            android:visibility="gone" />
+
+        <!-- Time Display -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="space_between"
+            android:layout_marginTop="4dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_current_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00"
+                android:textColor="#CCCCCC"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00"
+                android:textColor="#CCCCCC"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Resize handles -->
+    <!-- Top-left corner -->
+    <FrameLayout
+        android:id="@+id/resize_handle_top_left"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="start|top"
+        android:layout_margin="4dp"
+        android:background="@drawable/resize_handle"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- Top-right corner -->
+    <FrameLayout
+        android:id="@+id/resize_handle_top_right"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="end|top"
+        android:layout_margin="4dp"
+        android:background="@drawable/resize_handle"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- Bottom-left corner -->
+    <FrameLayout
+        android:id="@+id/resize_handle_bottom_left"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="start|bottom"
+        android:layout_margin="4dp"
+        android:background="@drawable/resize_handle"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- Bottom-right corner -->
+    <FrameLayout
+        android:id="@+id/resize_handle_bottom_right"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="4dp"
+        android:background="@drawable/resize_handle"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- Left side -->
+    <View
+        android:id="@+id/resize_handle_left"
+        android:layout_width="8dp"
+        android:layout_height="40dp"
+        android:layout_gravity="start|center_vertical"
+        android:layout_margin="4dp"
+        android:background="@drawable/resize_handle_vertical"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- Right side -->
+    <View
+        android:id="@+id/resize_handle_right"
+        android:layout_width="8dp"
+        android:layout_height="40dp"
+        android:layout_gravity="end|center_vertical"
+        android:layout_margin="4dp"
+        android:background="@drawable/resize_handle_vertical"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- Top side -->
+    <View
+        android:id="@+id/resize_handle_top"
+        android:layout_width="40dp"
+        android:layout_height="8dp"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_margin="4dp"
+        android:background="@drawable/resize_handle_horizontal"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- Bottom side -->
+    <View
+        android:id="@+id/resize_handle_bottom"
+        android:layout_width="40dp"
+        android:layout_height="8dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_margin="4dp"
+        android:background="@drawable/resize_handle_horizontal"
+        android:clickable="true"
+        android:focusable="true" />
+
+</FrameLayout>

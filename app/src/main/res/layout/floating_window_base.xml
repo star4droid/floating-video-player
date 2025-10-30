@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <!-- Main content container -->
+    <FrameLayout
+        android:id="@+id/fl_main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="4dp">
+
+        <!-- This will be replaced by specific window layouts -->
+        <View
+            android:id="@+id/v_content_placeholder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+    <!-- Window title bar -->
+    <LinearLayout
+        android:id="@+id/ll_window_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:padding="8dp"
+        android:background="@android:color/transparent"
+        android:visibility="gone">
+
+        <ImageButton
+            android:id="@+id/btn_window_minimize"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_minimize"
+            android:background="@android:color/transparent"
+            android:contentDescription="Minimize"
+            android:layout_marginEnd="8dp" />
+
+        <ImageButton
+            android:id="@+id/btn_window_close"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_close"
+            android:background="@android:color/transparent"
+            android:contentDescription="Close" />
+
+    </LinearLayout>
+
+    <!-- Resize handles for window resizing -->
+    <!-- Top-left corner -->
+    <FrameLayout
+        android:id="@+id/resize_handle_top_left"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="start|top"
+        android:layout_margin="4dp"
+        android:background="@drawable/resize_handle"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- Top-right corner -->
+    <FrameLayout
+        android:id="@+id/resize_handle_top_right"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="end|top"
+        android:layout_margin="4dp"
+        android:background="@drawable/resize_handle"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- Bottom-left corner -->
+    <FrameLayout
+        android:id="@+id/resize_handle_bottom_left"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="start|bottom"
+        android:layout_margin="4dp"
+        android:background="@drawable/resize_handle"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- Bottom-right corner -->
+    <FrameLayout
+        android:id="@+id/resize_handle_bottom_right"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="4dp"
+        android:background="@drawable/resize_handle"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- Left side -->
+    <View
+        android:id="@+id/resize_handle_left"
+        android:layout_width="8dp"
+        android:layout_height="40dp"
+        android:layout_gravity="start|center_vertical"
+        android:layout_margin="4dp"
+        android:background="@drawable/resize_handle_vertical"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- Right side -->
+    <View
+        android:id="@+id/resize_handle_right"
+        android:layout_width="8dp"
+        android:layout_height="40dp"
+        android:layout_gravity="end|center_vertical"
+        android:layout_margin="4dp"
+        android:background="@drawable/resize_handle_vertical"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- Top side -->
+    <View
+        android:id="@+id/resize_handle_top"
+        android:layout_width="40dp"
+        android:layout_height="8dp"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_margin="4dp"
+        android:background="@drawable/resize_handle_horizontal"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- Bottom side -->
+    <View
+        android:id="@+id/resize_handle_bottom"
+        android:layout_width="40dp"
+        android:layout_height="8dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_margin="4dp"
+        android:background="@drawable/resize_handle_horizontal"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- Window overlay for visual feedback -->
+    <View
+        android:id="@+id/v_window_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:visibility="gone" />
+
+</FrameLayout>
