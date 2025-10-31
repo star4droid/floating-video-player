@@ -33,34 +33,3 @@ jobs:
         name: engine.apk
         path: app/build/outputs/apk/debug/app-debug.apk
         retention-days: 90
-
-    # Extract classes.dex files and zip them
-    - name: Extract and Zip Classes
-      if: always()
-      run: |
-        APK_PATH="app/build/outputs/apk/debug/app-debug.apk"
-        ZIP_OUTPUT="classes.zip"
-        
-        TEMP_DIR=$(mktemp -d)
-        
-        unzip -o -q "$APK_PATH" -d "$TEMP_DIR"
-        
-        cd "$TEMP_DIR"
-        zip "$ZIP_OUTPUT" AndroidManifest.xml
-        zip -r -q "$ZIP_OUTPUT" classes*.dex
-
-        cd -
-        
-        mv "$TEMP_DIR/$ZIP_OUTPUT" .
-
-    # Show files list
-    - name: Show files list
-      run: ls
-      
-    # Upload Classes ZIP artifact
-    - name: Upload Classes ZIP
-      uses: actions/upload-artifact@v4
-      with:
-        name: classes.zip
-        path: classes.zip
-        retention-days: 1
