@@ -83,7 +83,7 @@ android {
 
 dependencies {
     // Media3 version
-    ext.media3_version = "1.2.1"
+    ext.media3_version = "1.8.0"
     
     // Core library desugaring
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.4'
@@ -100,12 +100,9 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     
     // Media3 ExoPlayer
-    implementation "androidx.media3:media3-exoplayer:$media3_version"
-    implementation "androidx.media3:media3-exoplayer-dash:$media3_version"
-    implementation "androidx.media3:media3-exoplayer-hls:$media3_version"
-    implementation "androidx.media3:media3-exoplayer-ui:$media3_version"
-    implementation "androidx.media3:media3-session:$media3_version"
-    implementation "androidx.media3:media3-ui:$media3_version"
+    implementation 'androidx.media3:media3-exoplayer:$media3_version'
+implementation 'androidx.media3:media3-exoplayer-dash:$media3_version'
+implementation 'androidx.media3:media3-ui:$media3_version'
     
     // Lifecycle components
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.7.0'
